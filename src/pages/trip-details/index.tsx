@@ -6,9 +6,26 @@ import { Activities } from './activities'
 import { ImportantLinks } from './important-links'
 import { Invited } from './invited'
 import { ActivityModal } from './activity-modal'
+import { NewLinkForm } from './new-link-form'
+
+interface Link {
+  title: string
+  url: string
+}
 
 export function TripDetailsPage() {
+  const [links, setLinks] = useState<Link[]>([
+    {
+      title: 'Reserva do AirBnb',
+      url: 'https://www.airbnb.com.br/rooms/104700011',
+    },
+  ])
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+  const [isLinkModalOpen, setIsLinkModalOpen] = useState(false)
+
+  const addLink = (newLink: Link) => {
+    setLinks([...links, newLink])
+  }
 
   function openCreateModal() {
     setIsCreateModalOpen(true)
@@ -16,6 +33,14 @@ export function TripDetailsPage() {
 
   function closeCreateModal() {
     setIsCreateModalOpen(false)
+  }
+
+  function openLinkModal() {
+    setIsLinkModalOpen(true)
+  }
+
+  function closeLinkModal() {
+    setIsLinkModalOpen(false)
   }
 
   return (
@@ -37,7 +62,8 @@ export function TripDetailsPage() {
             <Activities />
           </section>
           <aside className="w-80 space-y-6">
-            <ImportantLinks />
+            <ImportantLinks links={links} onAddLink={openLinkModal} />
+
             <hr className="line-h" />
             <Invited />
           </aside>
@@ -45,6 +71,19 @@ export function TripDetailsPage() {
 
         {isCreateModalOpen && (
           <ActivityModal closeCreateModal={closeCreateModal} />
+        )}
+
+        {isLinkModalOpen && (
+          <div className="modal-background">
+            <NewLinkForm
+              onAdd={(newLink: Link) => {
+                addLink(newLink)
+                closeLinkModal()
+              }}
+              onClose={closeLinkModal}
+              closeCreateModal={closeCreateModal}
+            />
+          </div>
         )}
       </div>
     </div>
