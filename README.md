@@ -1,50 +1,79 @@
-# React + TypeScript + Vite
+# Planner Web
+### Planner Web é um template minimalista para desenvolvimento de aplicações front-end utilizando React, TypeScript e Vite, com estilização baseada em TailwindCSS. Este projeto também serve como base para organizar e planejar viagens, permitindo a expansão com funcionalidades mais avançadas.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+### ✨ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Estrutura de pastas otimizada para escalabilidade.
+- Integração com tailwind-variants para estilização de componentes reutilizáveis.
+- Suporte a Axios para requisições HTTP.
+- Configuração pronta para uso com TypeScript e Vite.
+- Design responsivo e personalizável.
 
-## Expanding the ESLint configuration
+### Estrutura do projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+planner-web-main/
+├── src/
+│   ├── components/       # Componentes reutilizáveis
+│   ├── pages/            # Páginas da aplicação
+│   ├── lib/              # Configurações e utilitários
+│   ├── assets/           # Recursos estáticos (imagens, ícones, etc.)
+│   ├── App.tsx           # Componente principal
+│   └── main.tsx          # Ponto de entrada da aplicação
+├── public/               # Arquivos públicos
+├── tailwind.config.js    # Configurações do TailwindCSS
+├── package.json          # Dependências e scripts do projeto
+└── README.md             # Documentação do projeto
 
-- Configure the top-level `parserOptions` property like this:
+### 🚀 Tecnologias Utilizadas
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- React: Biblioteca para construção de interfaces de usuário.
+- TypeScript: Superset de JavaScript que adiciona tipagem estática.
+- Vite: Ferramenta de construção de aplicações front-end, extremamente rápida.
+- TailwindCSS: Framework de CSS utilitário para design moderno e responsivo.
+- Axios: Cliente HTTP para consumo de APIs.
+- Biome: Para manter o código limpo e consistente.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 🛠️ Instalação e Uso
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Siga os passos abaixo para rodar o projeto localmente:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+git clone https://github.com/seu-usuario/planner-web.git
+cd planner-web
+
+Instale as dependências: 
+
+npm install
+
+Inicie o servidor de desenvolvimento:
+
+npm run dev
+
+### 🧪 Testes
+
+Este projeto está configurado para testes unitários utilizando Jest e React Testing Library. Para rodar os testes:
+
+Instale as dependências de desenvolvimento (se ainda não instaladas):
+
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+
+Execute os testes:
+
+npm test
+
+### 🌟 Contribuição
+
+Contribuições são bem-vindas! Para contribuir:
+
+Faça um fork do repositório.
+Crie uma nova branch para suas alterações:
+
+git checkout -b minha-feature
+
+Faça as alterações desejadas e envie um pull request.
+
+### 📋 Licença
+Este projeto está licenciado sob a MIT License.
+
+
+
